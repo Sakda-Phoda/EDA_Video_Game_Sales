@@ -31,11 +31,13 @@ The top 10 platforms make up **83%** of all sales:
 * The game industry grew very fast after 2000 and peaked during **2008 - 2009**.
 * **Activision** sales went up quickly after 2005. However, if we combine **Electronic Arts** and **EA Sports**, EA is the #1 publisher with the highest total sales overall.
 
----
-
 ## 🛠️ Tech Stack & Methodology
 - **Language:** Python
 - **Libraries:** Pandas, Matplotlib, Seaborn, Scikit-learn, Lifetimes.
 
 ## 📚 Data Source
 Video Game Sales & Industry Data (1980 - 2024) >> (https://www.kaggle.com/datasets/bhushandivekar/video-game-sales-and-industry-data-1980-2024?select=Video_Games_Sales_Cleaned.csv)
+
+<img width="762" height="453" alt="image" src="https://github.com/user-attachments/assets/8b0844d1-4f43-4b95-842b-d09e85559756" />
+<img width="665" height="453" alt="image" src="https://github.com/user-attachments/assets/7a59cc64-9cae-48c0-9a35-4078543b55a3" />
+<img width="790" height="990" alt="image" src="https://github.com/user-attachments/assets/a8b69cdd-e13c-4c06-b794-41a1d9cced46" />
