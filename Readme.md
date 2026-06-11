@@ -1,43 +1,79 @@
-# 🎮 Video Game Sales & Industry Data: EDA
+# Video Game Sales & Industry Data: EDA
 
-## 📖 Project Overview
-In this project, I use Exploratory Data Analysis (EDA) to study video game sales from 1980 to 2024. Instead of looking at only one topic, I look at the big picture. I analyze sales, consoles, genres, and trends to find interesting facts about the video game business.
+## Project Overview
+* **Objective:** This project aims to empower game developers, publishers, and investors by uncovering historical video game market trends, showing them **how** genres, platforms, and critical reception influence commercial success, and **who** the key industry players are.
+* **Data Cleaning:** I cleaned and standardized the dataset by lowercasing headers, formatting dates, and engineering new temporal features.
+* **Exploratory Data Analysis (EDA):** I performed comprehensive data analysis to identify market concentrations, console dominance, franchise power, and the relationship between game scores and total sales.
 
-## 🎯 Summary
+## Objective
+My primary goal for this project was to understand the driving forces behind the video game industry's commercial success from 1980 to 2024. The **Value Created** lies in transforming raw historical sales data into actionable insights. By analyzing genre popularity, publisher market share, and the financial impact of critic scores, I provide a data-backed perspective that helps industry stakeholders make informed decisions about future game development, platform targeting, and marketing investments.
 
-### 1. Game Sales & Market Concentration
-* **Top 1%** of all games (about 130 titles) make up **22.61%** of total sales.
-* **Grand Theft Auto V** is the #1 best-selling game. It sold **twice as much** as the second-place game.
-* **Top 10 Publishers** (out of 739) and **Top 10 Developers** take over **58%** and **31%** of the global market share.
+## Resources Used
+* **Data Source:** [Video Game Sales & Industry Data (1980 - 2024)](https://www.kaggle.com/datasets/bhushandivekar/video-game-sales-and-industry-data-1980-2024?select=Video_Games_Sales_Cleaned.csv)
+* **Libraries & Packages:** `kagglehub`, `pandas`, `seaborn`, `matplotlib`
 
-### 2. Genre & Franchise Dominance
-Three main genres drive the industry:
-* **Sports:** Led by the **FIFA** series from EA (Electronic Arts).
-* **Action:** Driven by the **Grand Theft Auto** series.
-* **Shooter:** Led by **Call of Duty** from Activision. (9 out of the top 10 best-selling shooters are Call of Duty games).
+## Project Features Explanation
+* **title:** The name of the video game.
+* **console:** The gaming platform or console on which the game was released.
+* **genre:** The category or type of the game (e.g., Action, Sports, Shooter).
+* **publisher:** The company responsible for publishing and marketing the game.
+* **developer:** The studio or team that created the game.
+* **critic_score:** The average review score given to the game by professional critics (typically out of 10).
+* **total_sales:** The total global sales of the game (in millions of units).
+* **release_year:** The year the game was officially launched to the public.
 
-### 3. Console & Platform Wars
-The top 10 platforms make up **83%** of all sales:
-* **PS2:** The #1 console of all time. (The best-selling game on PS2 is *GTA: Vice City*).
-* **Xbox 360:** The #2 platform. The *Call of Duty series* sold very well on this console.
-* **Era Leaders:** **PlayStation** has been the leader for a long time. PS1 had a **61%** share in the 1990s, PS2 had **30.6%** in the 2000s, and today PS3 and PS4 have the highest combined sales.
+## Data Cleaning
+To prepare the dataset for analysis, I performed the following data cleaning and preprocessing steps in my notebook:
+* Loaded the dataset seamlessly using the Kaggle API.
+* Standardized all column headers to `snake_case` by lowercasing, stripping whitespace, and replacing spaces with underscores to ensure consistent referencing.
+* Converted the `release_year` column into a proper pandas datetime format.
+* Engineered new categorical features (`year` and `era`) from the release dates to facilitate historical trend analysis.
 
-### 4. Critic Scores vs. Commercial Success
-* Most games have an average score of around **7.3 / 10**.
-* **Special Cases:** The **Game Boy Color (GBC)** has the highest average score at **8.67** (led by *Zelda* and *Hamtaro*). **Sandbox** games have the highest genre score at **9.2** (led by *Minecraft*).
-* **The Relationship:** High scores do not always mean high sales. However, if a game scores **below 5/10**, sales are almost always very low.
+## Exploratory Data Analysis (EDA)
+By analyzing the data through various visualizations, I uncovered several detailed insights about the video game industry's structure and history:
 
-### 5. Historical Trends
-* The game industry grew very fast after 2000 and peaked during **2008 - 2009**.
-* **Activision** sales went up quickly after 2005. However, if we combine **Electronic Arts** and **EA Sports**, EA is the #1 publisher with the highest total sales overall.
+* **Market Concentration & Best-Sellers:** 
+    * A massive portion of industry revenue is driven by a very small number of entities. The top 20% of games account for nearly 80% of total sales. 
 
-## 🛠️ Tech Stack & Methodology
-- **Language:** Python
-- **Libraries:** Pandas, Matplotlib, Seaborn, Scikit-learn, Lifetimes.
+    ![alt text](image/EDA_Video_Game_Sales_1.png)
 
-## 📚 Data Source
-Video Game Sales & Industry Data (1980 - 2024) >> (https://www.kaggle.com/datasets/bhushandivekar/video-game-sales-and-industry-data-1980-2024?select=Video_Games_Sales_Cleaned.csv)
+    * At the corporate level, the top 10 publishers control 58.7% of the global market, and the top 10 developers manage roughly 33.3% (*EA Canada* ranks as the #1 developer overall).
+    
+    ![alt text](image/EDA_Video_Game_Sales_2.png)
+    ![alt text](image/EDA_Video_Game_Sales_3.png)
 
-<img width="762" height="453" alt="image" src="https://github.com/user-attachments/assets/8b0844d1-4f43-4b95-842b-d09e85559756" />
-<img width="665" height="453" alt="image" src="https://github.com/user-attachments/assets/7a59cc64-9cae-48c0-9a35-4078543b55a3" />
-<img width="790" height="990" alt="image" src="https://github.com/user-attachments/assets/a8b69cdd-e13c-4c06-b794-41a1d9cced46" />
+    * On an individual game level, *Grand Theft Auto V* is an extreme outlier, selling double the copies of its closest competitor.
+
+    ![alt text](image/EDA_Video_Game_Sales_4.png)
+
+* **Console Dominance & Platform Wars:** 
+    * Hardware platforms heavily dictate market reach, with the top 10 consoles capturing 83% of all historical sales. 
+    
+    ![alt text](image/EDA_Video_Game_Sales_5.png)
+    
+    * Sony's PlayStation series shows a legacy of dominance: the PS1 held a 61.25% market share in the 1990s, and the PS2 became the highest-selling console of all time with a 30.6% share in the 2000s. 
+
+    ![alt text](image/EDA_Video_Game_Sales_6.png)    
+
+* **Genre Leaders & Franchise Power:** 
+    * Sports, Action, and Shooter are definitively the most genres. 
+    
+    ![alt text](image/EDA_Video_Game_Sales_7.png)
+    
+    * The data shows that major franchises absolutely monopolize these top categories. For instance, *FIFA* games occupy every single spot in the top 10 Sports list. Similarly, *Grand Theft Auto* takes 5 of the top 10 Action spots, and *Call of Duty* claims 9 of the top 10 Shooter spots.
+
+    ![alt text](image/EDA_Video_Game_Sales_8.png)
+
+* **Critic Scores vs. Commercial Success:** 
+    * I analyzed whether high-quality reviews translate to higher revenue. The average game scores around a 7.3/10. 
+
+    ![alt text](image/EDA_Video_Game_Sales_9.png)
+    
+    * I found that high scores do not guarantee commercial success—for example, highly-rated Sandbox games or Game Boy Color exclusives often don't top the global sales charts. However, poor quality is a strong predictor of failure; games that score below a 5/10 almost universally suffer from exceptionally low sales.
+
+    ![alt text](image/EDA_Video_Game_Sales_10.png)
+
+* **Historical Market Trends:** 
+    * Tracking sales over eras revealed that the industry experienced explosive growth throughout the 2000s, peaking heavily between 2008 and 2009 before stabilizing in the digital era. Certain publishers leveraged this boom effectively; for example, *Activision* saw a massive and distinct revenue spike post-2005.
+
+    ![alt text](image/EDA_Video_Game_Sales_11.png)
